@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+
+<configuration scan="true">
+    <springProperty name="appName" source="spring.application.name" />
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <param name="Encoding" value="UTF-8"/>
+        <!--    should be an env variable in production    -->
+        <remoteHost>localhost</remoteHost>
+        <!--    should be an env variable in production    -->
+        <port>5000</port>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"app_name":"${appName}"}</customFields>
+        </encoder>
+    </appender>
+
+    <logger name="com.example.elkdemo.ProductController" level="INFO">
+        <appender-ref ref="logstash" />
+    </logger>
+    <logger name="com.example.elkdemo.error" level="INFO">
+        <appender-ref ref="logstash" />
+    </logger>
+</configuration>
