@@ -1,7 +1,7 @@
 ---
 # ELK Stack Log Analysis - Scenario Testing
 
-This README.md file provides a summary of the scenario testing process for log analysis using the ELK Stack and Logstash. The testing focuses on two scenarios: 
+This README.md file provides a summary of the scenario testing process for log analysis using the ELK Stack and Logstash. The testing focuses on two scenarios
 
 ## Scenario 1: Log File Processing
 In this scenario, the demo application writes logs to a log file, which serves as the input for Logstash. The following steps outline the testing process
