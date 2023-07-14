@@ -4,7 +4,7 @@
 This README.md file provides a summary of the scenario testing process for log analysis using the ELK Stack and Logstash. The testing focuses on two scenarios: 
 
 ## Scenario 1: Log File Processing
-In this scenario, the demo application writes logs to a log file, which serves as the input for Logstash. The following steps outline the testing process:
+In this scenario, the demo application writes logs to a log file, which serves as the input for Logstash. The following steps outline the testing process
 
 1. Run the ELK Stack using the provided docker-compose.yaml file.
 2. Execute the Spring demo app and make requests to generate logs.
@@ -13,7 +13,7 @@ In this scenario, the demo application writes logs to a log file, which serves a
 5. Access Kibana's "Discover" tab, create an index pattern, and view the logs.
 
 ## Scenario 2: Real-Time Log Processing
-The second scenario involves configuring the logback library to send logs directly to Logstash, enabling real-time log processing. The testing process is as follows:
+The second scenario involves configuring the logback library to send logs directly to Logstash, enabling real-time log processing. The testing process is as follows
 
 1. Re-run the demo app and the ELK Stack.
 2. Create a new index pattern in Kibana.
