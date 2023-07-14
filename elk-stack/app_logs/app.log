@@ -1,0 +1,9 @@
+2023-07-14 22:35:55.066  INFO [elk-demo,,] 7758 --- [main] com.example.elkdemo.ElkDemoApplication   : Started ElkDemoApplication in 1.851 seconds (JVM running for 2.507)
+2023-07-14 22:36:18.806  INFO [elk-demo,0efa386442e46bf1,0efa386442e46bf1] 7758 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-14 22:36:18.808  INFO [elk-demo,0efa386442e46bf1,0efa386442e46bf1] 7758 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-14 22:36:18.809  INFO [elk-demo,0efa386442e46bf1,0efa386442e46bf1] 7758 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-07-14 22:36:18.859  INFO [elk-demo,0efa386442e46bf1,0efa386442e46bf1] 7758 --- [http-nio-8080-exec-1] com.example.elkdemo.ProductController    : return product with id = 2 successfully
+2023-07-14 22:36:24.159  INFO [elk-demo,42a09348ab133b52,42a09348ab133b52] 7758 --- [http-nio-8080-exec-2] com.example.elkdemo.ProductController    : return product with id = 2 successfully
+2023-07-14 22:36:26.799  INFO [elk-demo,642caa71dbfde81f,642caa71dbfde81f] 7758 --- [http-nio-8080-exec-3] com.example.elkdemo.ProductController    : return product with id = 1 successfully
+2023-07-14 22:36:30.538 ERROR [elk-demo,5ba7db66284fbdec,5ba7db66284fbdec] 7758 --- [http-nio-8080-exec-5] c.e.elkdemo.error.ControllerAdvice       : Product 11 not found
+2023-07-14 22:36:33.492 ERROR [elk-demo,dccc30c77fcf2bce,dccc30c77fcf2bce] 7758 --- [http-nio-8080-exec-7] c.e.elkdemo.error.ControllerAdvice       : Product 12 not found
