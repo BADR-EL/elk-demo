@@ -25,4 +25,4 @@ By following these testing procedures, users can evaluate the functionality of l
 
 ---
 
-**Note:** For detailed instructions and further information, refer to the full article.
+**Note:** For detailed instructions and further information, refer to the [full article.](https://medium.com/@badreddine.elkantouri/unleashing-the-power-of-log-analysis-with-elk-stack-using-logstash-for-centralized-logging-and-5984f8585641)
