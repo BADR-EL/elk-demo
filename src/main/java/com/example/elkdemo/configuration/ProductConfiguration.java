@@ -1,4 +1,4 @@
-package com.example.elkdemo;
+package com.example.elkdemo.configuration;
 
 import com.example.elkdemo.model.Product;
 import org.springframework.context.annotation.Bean;
@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @org.springframework.context.annotation.Configuration
-public class Configuration {
+public class ProductConfiguration {
 
     @Bean
     public List<Product> getProducts(){

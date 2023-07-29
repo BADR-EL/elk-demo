@@ -1,5 +1,6 @@
 package com.example.elkdemo;
 
+import com.example.elkdemo.configuration.KafkaLogProducer;
 import com.example.elkdemo.error.ProductNotFoundSupplier;
 import com.example.elkdemo.model.Product;
 import com.example.elkdemo.model.Response;
@@ -17,8 +18,13 @@ import java.util.Optional;
 @Slf4j
 public class ProductController {
 
-    @Autowired
-    List<Product> products;
+    private final List<Product> products;
+    private final KafkaLogProducer kafkaLogProducer;
+
+    public ProductController(List<Product> products,KafkaLogProducer kafkaLogProducer){
+        this.products = products;
+        this.kafkaLogProducer = kafkaLogProducer;
+    }
 
     @GetMapping("/product/{id}")
     public ResponseEntity<?> getPruduct(@PathVariable int id) throws RuntimeException{
@@ -27,6 +33,7 @@ public class ProductController {
                 .findAny();
         Product product = optionalProduct.orElseThrow(new ProductNotFoundSupplier("Product "+id+" not found"));
         log.info("return product with id = "+id+" successfully");
+        kafkaLogProducer.sendLog("return product with id = "+id+" successfully");
         return new ResponseEntity<>(new Response("ok",product), HttpStatus.OK);
     }
 }
