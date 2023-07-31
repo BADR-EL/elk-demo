@@ -9,6 +9,7 @@ services:
       - "9200:9200"
     volumes:
       - data00:/usr/share/elasticsearch/data
+
   kibana:
     image: docker.elastic.co/kibana/kibana:7.17.11
     ports:
@@ -29,7 +30,48 @@ services:
     ports:
       - '9600:9600'
       - '5000:5000'
+  
+#########################################  Kafka Configs ######################################################
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:6.1.1
+    hostname: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
+  kafka:
+    image: confluentinc/cp-kafka:6.1.1
+    hostname: kafka
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+
+  create-topics:
+    image: confluentinc/cp-kafka:6.1.1
+    depends_on:
+      - kafka
+    command: >
+      bash -c "
+      kafka-topics --create --topic logging-topic --partitions 1 --replication-factor 1 --bootstrap-server kafka:9092"
+
+
+  
 
 volumes:
   data00:
+    driver: local
+  kafka-data:
     driver: local
